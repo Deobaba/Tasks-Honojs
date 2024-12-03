@@ -9,6 +9,7 @@ const taskSchema = z.object({
   name: z.string(),
   completed: z.boolean(),
   description:z.string(),
+  email:z.string().email(),
   createdAt: z.date().nullable(),
   updatedAt: z.date().nullable(),
 });
@@ -47,10 +48,10 @@ export const create = createRoute({
         content: {
          "application/json": {
           schema: z.object({
-              name: z.string(),
-              email: z.string(),
-              description: z.string(),
-              completed: z.boolean(),
+            name: z.string().min(1, "Name is required"),
+            email: z.string().email("Invalid email address"),
+            description: z.string().min(1, "Description is required"),
+            completed: z.boolean(),
             })
         },
       },
@@ -100,7 +101,7 @@ export const update = createRoute({
           schema: z.object({
             name: z.string().optional(),
             email: z.string().optional(),
-            description: z.string(),
+            description: z.string().optional(),
             completed: z.boolean().optional(),
           }),
         },
@@ -187,10 +188,10 @@ export const patch = createRoute({
          "application/json": {
           schema: z.array(
             z.object({
-              name: z.string(),
-              email: z.string(),
-              description: z.string(),
-              completed: z.boolean(),
+              name: z.string().optional(),
+              email: z.string().optional(),
+              description: z.string().optional(),
+              completed: z.boolean().optional(),
             })
           ),
         },
