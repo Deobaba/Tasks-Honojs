@@ -1,14 +1,13 @@
 import { OpenAPIHono } from '@hono/zod-openapi';
 import { pinoLogger } from '@/middleware/pino-logger.js';
-// import { PinoLogger } from 'hono-pino';
+import { AppBindings } from './types';
 
-// interface AppBindings {
-//     variables: {
-//         logger: PinoLogger
-//     }
-// }
+export function createRouter(){
+    return new OpenAPIHono<AppBindings>({strict: false});
+}
+
 export default function createApp(){
-const app = new OpenAPIHono({strict: false});
+const app = createRouter();
 
 app.use(pinoLogger());
 

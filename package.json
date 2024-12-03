@@ -16,23 +16,30 @@
   "dependencies": {
     "@hono/node-server": "^1.13.7",
     "@hono/zod-openapi": "^0.18.3",
-    "dotenv": "^16.4.5",
+    "@libsql/client": "^0.14.0",
+    "@scalar/hono-api-reference": "^0.5.162",
+    "dotenv": "^16.4.6",
     "dotenv-expand": "^12.0.1",
+    "drizzle-orm": "^0.36.4",
     "hono": "^4.6.12",
     "hono-pino": "^0.7.0",
+    "pg": "^8.13.1",
     "pino": "^9.5.0",
     "pino-pretty": "^13.0.0",
+    "postgres": "^3.4.5",
     "zod": "^3.23.8"
   },
   "devDependencies": {
     "@eslint/js": "^9.16.0",
     "@types/node": "^20.11.17",
+    "@types/pg": "^8.11.10",
     "@typescript-eslint/eslint-plugin": "^8.17.0",
     "@typescript-eslint/parser": "^8.17.0",
+    "drizzle-kit": "^0.28.1",
     "eslint": "^9.16.0",
     "globals": "^15.13.0",
     "prettier": "^3.4.1",
-    "tsx": "^4.7.1",
+    "tsx": "^4.19.2",
     "typescript-eslint": "^8.17.0"
   }
 }
